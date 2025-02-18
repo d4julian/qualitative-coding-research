@@ -15,10 +15,13 @@ blooms_df['#'] = blooms_df['#'].astype(int)
 blooms_df.sort_values(by='#', inplace=True)
 bloom_dict = pd.Series(blooms_df['Bloom\'s'].values, index=blooms_df['#']).to_dict()
 bloom_inverse_dict = blooms_df.set_index('Bloom\'s')['#'].to_dict()
+#print(bloom_dict)
 
-competency_df = codebook[['Number', 'Competency']]
+competency_df = codebook[['Number', 'Competency', 'Competency Description']]
+competency_df['Competency'] = competency_df['Competency'] + ': ' + competency_df['Competency Description']
 competency_dict = competency_df.set_index('Number')['Competency'].to_dict()
 competency_inverse_dict = competency_df.set_index('Competency')['Number'].to_dict()
+#print(competency_dict)
 
 data = pd.read_csv('filled_train_data.csv')
 
@@ -57,13 +60,12 @@ remaining_data['Competency_num'] = remaining_data['Competency_num'].astype(str)
 for index, row in remaining_data.iterrows():
     bloom_pred = bloom_model.predict([row['combined_text']])[0]
     
-    # **Updated Prediction Handling**
-    competency_pred = competency_model.predict([row['combined_text']])  # Removed [0]
-    competency_labels = mlb.inverse_transform(competency_pred)[0]       # Pass the 2D array directly
+    competency_pred = competency_model.predict([row['combined_text']])
+    competency_labels = mlb.inverse_transform(competency_pred)[0]
     
     remaining_data.at[index, 'Competency_num'] = ','.join(
         str(competency_inverse_dict.get(label, '')) for label in competency_labels
     )
-    remaining_data.at[index, 'Learning_num'] = int(bloom_inverse_dict.get(bloom_pred, 0))  # Added get with default
+    remaining_data.at[index, 'Learning_num'] = int(bloom_inverse_dict.get(bloom_pred, 0))
 
 remaining_data.to_csv('remaining_data_output.csv', index=False)

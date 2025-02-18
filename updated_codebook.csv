@@ -1,9 +1,9 @@
-Number,Competency,,#,Bloom's,Description
-1,Programming Fundamentals,,6,Create,Use information to create something new
-2,Data Management and Processing,,5,Evaluate,Examine information and make judgments
-3,Object-Oriented Programming (OOP),,4,Analyze,Take apart the known and identify relationships
-4,Algorithm Fundamentals,,3,Apply,Use information in a new (but similar) situation
-5,Code Construction,,2,Understand,Grasp meaning of instructional materials
-6,Program Development Practices,,1,Remember,Recall specific facts
-7,Programming Language Concepts,,,,
-8,Language Unique Programming Concepts,,,,
+Number,Competency,Competency Description,#,Bloom's,Description
+1,Programming Fundamentals,"Focuses on foundational programming concepts, including number systems, data types, operators, and basic input/output",6,Create,Use information to create something new
+2,Data Management and Processing ,"Focuses on storing, retrieving, and managing data efficiently",5,Evaluate,Examine information and make judgments
+3,Object-Oriented Programming (OOP),"All OOP related to concepts and coding practices, such as classes and objects creation, encapsulation, inheritances, polymorphism, and abstraction",4,Analyze,Take apart the known and identify relationships
+4,Algorithm Fundamentals,"Understanding, implementing, and evaluating algorithms",3,Apply,Use information in a new (but similar) situation
+5,Code Construction,"Writing, structuring, and modifying code for clarity and efficiency",2,Understand,Grasp meaning of instructional materials
+6,Program Development Practices,"Debugging, testing, documentation, and effective coding practices",1,Remember,Recall specific facts
+7,Programming Language Concepts,"Differences between programming paradigms, compilation, and execution",,,
+8,Language Unique Programming Concepts,Advanced concepts specific to certain programming languages,,,
